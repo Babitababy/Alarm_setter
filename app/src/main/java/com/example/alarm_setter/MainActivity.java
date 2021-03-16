@@ -1,5 +1,4 @@
 package com.example.alarm_setter;
-
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -8,14 +7,14 @@ import android.view.View;
 import android.widget.TimePicker;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
 import java.util.Calendar;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
-    PendingIntent pendingIntent;
     TimePicker time_Picker;
     AlarmManager manager;
+    PendingIntent pending_intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +27,10 @@ public class MainActivity extends AppCompatActivity {
     public void OnToggleClicked(View view)
     {
         long alarm_time;
+
         if (((ToggleButton) view).isChecked())
         {
+
             Toast.makeText(MainActivity.this, "ALARM ON", Toast.LENGTH_SHORT).show();
             Calendar calendar = Calendar.getInstance();
             //get current hour
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             //get ccurrent minute
             calendar.set(Calendar.MINUTE, time_Picker.getCurrentMinute());
             Intent intent = new Intent(this, AlarmReceiver.class);
-            pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+            pending_intent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
             alarm_time=(calendar.getTimeInMillis()-(calendar.getTimeInMillis()%60000));
             if(System.currentTimeMillis()>alarm_time)
@@ -48,15 +49,17 @@ public class MainActivity extends AppCompatActivity {
                     alarm_time = alarm_time + (1000*60*60*24);
             }
             //alarm is repeated until it is turned off by the uer
-            manager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_time, 10000, pendingIntent);
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, alarm_time, 10000, pending_intent);
 
         }
+
         else
         {
-            manager.cancel(pendingIntent);
+            manager.cancel(pending_intent);
             //alarm off
             Toast.makeText(MainActivity.this, "ALARM OFF", Toast.LENGTH_LONG).show();
         }
+
     }
 }
 
