@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
     <TimePicker
-        android:id="@+id/time_picker"
+        android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
+        android:layout_gravity="center" />
+
     <ToggleButton
-        android:id="@+id/toggle_button"
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:checked="false"
         android:layout_margin="20dp"
-        android:onClick="OnToogleClicked"
-
-        />
-
+        android:checked="false"
+        android:onClick="OnToggleClicked" />
 </LinearLayout>
