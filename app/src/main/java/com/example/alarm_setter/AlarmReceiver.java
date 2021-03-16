@@ -1,6 +1,4 @@
 package com.example.alarm_setter;
-
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,12 +12,14 @@ public class AlarmReceiver extends BroadcastReceiver
     public void onReceive(Context context, Intent intent)
     {
         Toast.makeText(context, "Wake up! Wake up!", Toast.LENGTH_LONG).show();
-        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-        if (alarmUri == null)
+        Uri alarm_uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if (alarm_uri == null)
         {
-            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            alarm_uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         }
-        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        //Ringtone rings when alarm time reaches
+        Ringtone ringtone = RingtoneManager.getRingtone(context, alarm_uri);
         ringtone.play();
+
     }
 }
