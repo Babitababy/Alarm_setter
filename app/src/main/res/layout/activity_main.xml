@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,15 +10,29 @@
         android:id="@+id/time_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center" />
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:timePickerMode="clock"
+         />
 
-    <!--Toggle Button to turn the Alarm on or off-->
-    <ToggleButton
-        android:id="@+id/toggle_button"
+<TextView
+    android:id="@+id/time_textview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:textColor="#0900"
+    android:textStyle="bold"
+    android:textSize="20sp"
+    android:text="Time:"
+    />
+
+    <Button
+        android:id="@+id/set_Alarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:checked="false"
-        android:onClick="OnToggleClicked" />
-</LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="SET_ALARM"
+        />
+
+</RelativeLayout>
