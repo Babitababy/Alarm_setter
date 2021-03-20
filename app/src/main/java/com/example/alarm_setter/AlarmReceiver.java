@@ -22,21 +22,16 @@ public class AlarmReceiver extends BroadcastReceiver
     {
         //we will use vibrator first
         Vibrator vibrator = (Vibrator)context.getSystemService(context.VIBRATOR_SERVICE);
-        vibrator.vibrate(2000);
+        vibrator.vibrate(4000);
 
-        //now setup the notification
-        Notification noti=new Notification.Builder(context).setContentTitle("ALARM")
-                .setContentText("You had set up the alarm")
-                .setSmallIcon(R.mipmap.ic_launcher).build();
-        NotificationManager manager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
-        noti.flags=Notification.FLAG_AUTO_CANCEL;
-        manager.notify(0,noti);
-
-        //finally we can play the ringtone
-
-        Uri notification= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-        Ringtone r= RingtoneManager.getRingtone(context,notification);
-        r.play();
+        Toast.makeText(context, "Alarm! Wake up! Wake up!", Toast.LENGTH_LONG).show();
+        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if (alarmUri == null)
+        {
+            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        }
+        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        ringtone.play();
 
 
     }

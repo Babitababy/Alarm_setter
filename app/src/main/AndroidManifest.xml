@@ -3,7 +3,7 @@
     package="com.example.alarm_setter">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
+ <!--vibration permisson given-->
 
     <application
         android:allowBackup="true"
@@ -21,9 +21,6 @@
         </activity>
 
         <receiver android:name=".AlarmReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.NOTIFY" />
-            </intent-filter>
         </receiver>
 
     </application>

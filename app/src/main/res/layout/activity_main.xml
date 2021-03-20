@@ -1,39 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<!--Adding timepicker just to pick the time-->
     <TimePicker
-        android:id="@+id/time_picker"
+        android:id="@+id/timePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:timePickerMode="clock"
-         />
+        android:layout_gravity="center" />
 
-<TextView
-    android:id="@+id/time_textview"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"
-    android:textColor="#0900"
-    android:textStyle="bold"
-    android:textSize="20sp"
-    android:text="Time:"
-    />
-
-    <Button
-        android:id="@+id/set_Alarm"
+    <ToggleButton
+        android:id="@+id/toggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
-        android:text="SET_ALARM"
-        android:onClick="setTimer"
-        />
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:checked="false"
+        android:onClick="OnToggleClicked" />
 
-</RelativeLayout>
+</LinearLayout>
