@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
             cal_Alarm.add(Calendar.DATE,1);
         }
         //now we will simply call BroadcastReceiver
+      Intent intent = new Intent(MainActivity.this,AlarmReceiver.class);
+        PendingIntent pendingIntent=PendingIntent.getBroadcast(MainActivity.this,24444,intent,0);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,cal_Alarm.getTimeInMillis(),pendingIntent);
+
 
 
 

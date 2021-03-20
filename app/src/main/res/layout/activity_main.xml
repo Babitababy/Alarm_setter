@@ -33,6 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="11dp"
         android:text="SET_ALARM"
+        android:onClick="setTimer"
         />
 
 </RelativeLayout>
